@@ -1,9 +1,8 @@
 rootProject.name = 'uno'
 
 include ':shared:domain'
-include ':rounds:domain'
 include ':scoreboards:domain'
 
 project(':shared:domain').projectDir = file('./src/shared/src/domain')
-project(':rounds:domain').projectDir = file('./src/rounds/src/domain')
-project(':scoreboards:domain').projectDir = file('./src/scoreBoards/src/domain')
+project(':scoreboards:domain').projectDir = file('./src/scoreboards/src/domain')
+

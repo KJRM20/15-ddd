@@ -9,11 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/rounds" />
             <option value="$PROJECT_DIR$/scoreboards" />
             <option value="$PROJECT_DIR$/shared" />
-            <option value="$PROJECT_DIR$/src/rounds/src/domain" />
-            <option value="$PROJECT_DIR$/src/scoreBoards/src/domain" />
+            <option value="$PROJECT_DIR$/src/scoreboards/src/domain" />
             <option value="$PROJECT_DIR$/src/shared/src/domain" />
           </set>
         </option>

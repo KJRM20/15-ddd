@@ -5,14 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8480f11f-3b85-4b8a-9d60-c160e96e95dd" name="Changes" comment="Merge main with origin/main">
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/AggregateRoot.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainActionsContainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainActionsHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/IValueObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/Identity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/Round.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Move.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Strike.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Details.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Points.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/PointsEarned.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/PointsReduced.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Reduction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/ResultPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/ResultPlayers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/RoundWinner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/State.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/TotalPoints.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/ScoreBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/entities/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/entities/RoundHistory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Name.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/RoundList.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Score.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rounds/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rounds/src/domain/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/build.gradle" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,11 +46,29 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="uno" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -47,12 +87,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documentos/SofkaU/UNO/src/shared/src"
+    "last_opened_file_path": "D:/Documentos/SofkaU/UNO/src/scoreboards/src"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Documentos\SofkaU\UNO\src\scoreboards\src\domain\src\main\java" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
