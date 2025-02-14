@@ -4,19 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8480f11f-3b85-4b8a-9d60-c160e96e95dd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+    <list default="true" id="8480f11f-3b85-4b8a-9d60-c160e96e95dd" name="Changes" comment="Merge main with origin/main">
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/AggregateRoot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainActionsContainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainActionsHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/DomainEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/IValueObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/generic/Identity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,12 +24,20 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2t2SDZMf0KSAj6V4UGRg4Ubb4HJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,7 +47,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/Documentos/SofkaU/UNO/src/shared/src"
   }
@@ -57,6 +62,19 @@
       <option name="presentableId" value="Default" />
       <updated>1739548558565</updated>
     </task>
+    <task id="LOCAL-00001" summary="Merge main with origin/main">
+      <option name="closed" value="true" />
+      <created>1739556016149</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1739556016149</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge main with origin/main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge main with origin/main" />
   </component>
 </project>
