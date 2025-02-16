@@ -6,42 +6,34 @@ import java.util.List;
 
 import static com.uno.shared.domain.utils.ValidationUtils.validateNotNull;
 import static com.uno.shared.domain.utils.ValidationUtils.validateObjectList;
-import static com.uno.shared.domain.utils.ValidationUtils.validateString;
 
 public class ResultPlayers implements IValueObject {
   private final List<ResultPlayer> resultPlayers;
-  private final String roundWinnerId;
-  private final Points winnerExtraPoints;
+  private final RoundWinner roundWinner;
 
-  private ResultPlayers(List<ResultPlayer> players, String roundWinnerId, Points winnerExtraPoints) {
+  private ResultPlayers(List<ResultPlayer> players, RoundWinner roundWinner) {
     validate();
     this.resultPlayers = players;
-    this.roundWinnerId = roundWinnerId;
-    this.winnerExtraPoints = winnerExtraPoints;
+    this.roundWinner = roundWinner;
   }
 
-  public static ResultPlayers of(List<ResultPlayer> players, String roundWinnerId, Points winnerExtraPoints) {
-    return new ResultPlayers(players, roundWinnerId, winnerExtraPoints);
+  public static ResultPlayers of(List<ResultPlayer> resultPlayers, RoundWinner roundWinner){
+    return new ResultPlayers(resultPlayers, roundWinner);
   }
 
   @Override
   public void validate() {
     validateObjectList(resultPlayers, "Players cannot be null or empty");
     resultPlayers.forEach(ResultPlayer::validate);
-    validateString(roundWinnerId, "Round winner id cannot be null or empty");
-    validateNotNull(winnerExtraPoints, "Winner extra points cannot be null");
-    winnerExtraPoints.validate();
+    validateNotNull(roundWinner, "Round winner cannot be null");
+    roundWinner.validate();
   }
 
   public List<ResultPlayer> getResultPlayers() {
     return resultPlayers;
   }
 
-  public String getRoundWinnerId() {
-    return roundWinnerId;
-  }
-
-  public Points getWinnerExtraPoints() {
-    return winnerExtraPoints;
+  public RoundWinner getRoundWinner() {
+    return roundWinner;
   }
 }
