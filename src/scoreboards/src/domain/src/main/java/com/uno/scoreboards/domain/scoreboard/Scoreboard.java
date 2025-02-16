@@ -5,6 +5,7 @@ import com.uno.scoreboards.domain.scoreboard.entities.RoundHistory;
 import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.AddedRoundToHistory;
 import com.uno.scoreboards.domain.scoreboard.events.ReachedPlayerTargetScore;
+import com.uno.scoreboards.domain.scoreboard.events.RevertedHistoryToRound;
 import com.uno.scoreboards.domain.scoreboard.events.UpdatedPlayerPoints;
 import com.uno.scoreboards.domain.scoreboard.values.ScoreboardId;
 import com.uno.scoreboards.domain.scoreboard.values.State;
@@ -64,12 +65,26 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
     apply(new AddedRoundToHistory(roundId, roundWinnerId));
   }
 
+  public void revertHistoryToRound(String roundId) {
+    apply(new RevertedHistoryToRound(roundId));
+  }
+
   public void reachPlayerTargetScore(String playerId, Integer targetScore) {
     apply(new ReachedPlayerTargetScore(playerId, targetScore));
   }
 
   public void updatePlayerPoints(String playerId, Integer points) {
     apply(new UpdatedPlayerPoints(playerId, points));
+  }
+  // endregion
+
+  // region Public Methods
+  public void startRoundState() {
+    state = State.of(StateEnum.IN_PROGRESS.name());
+  }
+
+  public void finishRoundState() {
+    state = State.of(StateEnum.FINISHED.name());
   }
   // endregion
 }

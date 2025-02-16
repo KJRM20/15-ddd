@@ -26,6 +26,20 @@ public class RoundHistory extends Entity<RoundHistoryId> {
     roundHistoryList = RoundList.of(updatedRoundIds);
   }
 
+  public void revertToRound(String roundId) {
+    List<String> updatedRoundIds = new ArrayList<>(roundHistoryList.getRoundIds());
+    int index = updatedRoundIds.indexOf(roundId);
+    if (index == -1) {
+      throw new IllegalArgumentException("The specified round does not exist in the history.");
+    }
+    List<String> revertedRounds = new ArrayList<>(updatedRoundIds.subList(0, index + 1));
+    roundHistoryList = RoundList.of(revertedRounds);
+  }
+
+  public Integer getTotalRounds() {
+    return roundHistoryList.getRoundIds().size();
+  }
+
   public RoundList getRoundHistoryList() {
     return roundHistoryList;
   }

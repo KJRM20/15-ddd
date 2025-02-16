@@ -42,7 +42,7 @@ public class Move extends Entity<MoveId> {
     this.playerId = playerId;
   }
 
-  public Card geCard() {
+  public Card getCard() {
     return card;
   }
 

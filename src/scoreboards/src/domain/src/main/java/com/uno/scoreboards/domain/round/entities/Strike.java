@@ -1,5 +1,6 @@
 package com.uno.scoreboards.domain.round.entities;
 
+import com.uno.scoreboards.domain.round.values.DetailEnum;
 import com.uno.scoreboards.domain.round.values.Details;
 import com.uno.scoreboards.domain.round.values.PlayerId;
 import com.uno.scoreboards.domain.round.values.Points;
@@ -25,10 +26,9 @@ public class Strike extends Entity<StrikeId> {
     this.reducedPoints = reducedPoints;
   }
 
-  public void applyStrike() {
-    if(details.getValue().equals("FORGOT_UNO")){
-      reducedPoints = Points.of(20);
-    }
+  public void assignReducedPoints() {
+    DetailEnum detailEnum = DetailEnum.valueOf(details.getValue().toUpperCase());
+    reducedPoints = Points.of(detailEnum.getPoints());
   }
 
   public PlayerId getPlayerId() {

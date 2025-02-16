@@ -6,6 +6,7 @@ import com.uno.scoreboards.domain.round.entities.Strike;
 import com.uno.scoreboards.domain.round.events.AppliedStrike;
 import com.uno.scoreboards.domain.round.events.AssignedRoundWinner;
 import com.uno.scoreboards.domain.round.events.CalculatedResult;
+import com.uno.scoreboards.domain.round.events.FinishedRound;
 import com.uno.scoreboards.domain.round.events.RecordedMove;
 import com.uno.scoreboards.domain.round.values.RoundId;
 import com.uno.scoreboards.domain.round.values.State;
@@ -80,6 +81,16 @@ public class Round extends AggregateRoot<RoundId> {
 
   public void calculateResult(List<String> playerIds, List<Integer> pointsGained, List<Integer> pointsReduced, List<Integer> totalPoints, String roundWinnerId, Integer roundWinnerExtraPoints) {
     apply(new CalculatedResult(playerIds, pointsGained, pointsReduced, totalPoints, roundWinnerId, roundWinnerExtraPoints));
+  }
+  // endregion
+
+  // region Public Methods
+  public void startRoundState() {
+    state = State.of(StateEnum.IN_PROGRESS.name());
+  }
+
+  public void finishRoundState() {
+    state = State.of(StateEnum.FINISHED.name());
   }
   // endregion
 }
