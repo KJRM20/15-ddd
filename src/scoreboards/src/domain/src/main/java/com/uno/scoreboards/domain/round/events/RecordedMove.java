@@ -5,7 +5,7 @@ import com.uno.shared.domain.generic.DomainEvent;
 public class RecordedMove extends DomainEvent {
   private final String playerId;
   private final String type;
-  private final Integer points;
+  private final Integer points; // revisar
 
   public RecordedMove(String playerId, String type, Integer points) {
     super(EventsEnum.RECORDED_MOVE.name());

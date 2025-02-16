@@ -1,4 +1,27 @@
 package com.uno.scoreboards.domain.round.values;
 
-public class TotalPoints {
+import com.uno.shared.domain.generic.IValueObject;
+
+import static com.uno.shared.domain.utils.ValidationUtils.validateIntegerCouldBeNegative;
+
+public class TotalPoints implements IValueObject {
+  private final Integer value;
+
+  private TotalPoints(Integer value) {
+    validate();
+    this.value = value;
+  }
+
+  public static TotalPoints of(Integer value) {
+    return new TotalPoints(value);
+  }
+
+  @Override
+  public void validate() {
+    validateIntegerCouldBeNegative(value, "Total points cannot be null");
+  }
+
+  public Integer getValue() {
+    return value;
+  }
 }

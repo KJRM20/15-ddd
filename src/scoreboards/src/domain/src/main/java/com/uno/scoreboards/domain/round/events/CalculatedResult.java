@@ -6,13 +6,13 @@ import java.util.List;
 
 public class CalculatedResult extends DomainEvent {
   private final List<String> playerIds;
-  private final List<String> pointsGained;
-  private final List<String> pointsReduced;
-  private final List<String> totalPoints;
+  private final List<Integer> pointsGained;
+  private final List<Integer> pointsReduced;
+  private final List<Integer> totalPoints;
   private final String roundWinnerId;
   private final Integer roundWinnerExtraPoints;
 
-  public CalculatedResult(List<String> playerIds, List<String> pointsGained, List<String> pointsReduced, List<String> totalPoints, String roundWinnerId, Integer roundWinnerExtraPoints) {
+  public CalculatedResult(List<String> playerIds, List<Integer> pointsGained, List<Integer> pointsReduced, List<Integer> totalPoints, String roundWinnerId, Integer roundWinnerExtraPoints) {
     super(EventsEnum.CALCULATED_RESULT.name());
     this.playerIds = playerIds;
     this.pointsGained = pointsGained;
@@ -26,15 +26,15 @@ public class CalculatedResult extends DomainEvent {
     return playerIds;
   }
 
-  public List<String> getPointsGained() {
+  public List<Integer> getPointsGained() {
     return pointsGained;
   }
 
-  public List<String> getPointsReduced() {
+  public List<Integer> getPointsReduced() {
     return pointsReduced;
   }
 
-  public List<String> getTotalPoints() {
+  public List<Integer> getTotalPoints() {
     return totalPoints;
   }
 
