@@ -5,41 +5,40 @@ import com.uno.shared.domain.generic.IValueObject;
 import java.util.Arrays;
 
 import static com.uno.shared.domain.utils.ValidationUtils.validateInteger;
-import static com.uno.shared.domain.utils.ValidationUtils.validateIntegerCouldBeNegative;
 import static com.uno.shared.domain.utils.ValidationUtils.validateString;
 
-public class Type implements IValueObject {
-  private final String value;
+public class Card implements IValueObject {
+  private final String type;
   private final Integer number;
 
-  private Type(String value, Integer number) {
+  private Card(String value, Integer number) {
     validate();
     this.number = number;
-    this.value = value;
+    this.type = value;
   }
 
-  public static Type of(String value, Integer number) {
-    return new Type(value, number);
+  public static Card of(String value, Integer number) {
+    return new Card(value, number);
   }
 
   @Override
   public void validate() {
-    validateString(value, "Type cannot be null or empty");
+    validateString(type, "Type cannot be null or empty");
 
     boolean isValid = Arrays.stream(TypeEnum.values())
-      .anyMatch(type -> type.name().equals(value.toUpperCase()));
+      .anyMatch(type -> type.name().equals(this.type.toUpperCase()));
 
     if (!isValid) {
       throw new IllegalArgumentException("Invalid type");
     }
 
-    if(value.toUpperCase().equals(TypeEnum.NUMBER.name())) {
+    if(type.toUpperCase().equals(TypeEnum.NUMBER.name())) {
       validateInteger(number, "Number cannot be null or negative");
     }
   }
 
-  public String getValue() {
-    return value;
+  public String getType() {
+    return type;
   }
 
   public Integer getNumber() {

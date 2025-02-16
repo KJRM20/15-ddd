@@ -6,25 +6,25 @@ import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.AddedRoundToHistory;
 import com.uno.scoreboards.domain.scoreboard.events.ReachedPlayerTargetScore;
 import com.uno.scoreboards.domain.scoreboard.events.UpdatedPlayerPoints;
-import com.uno.scoreboards.domain.scoreboard.values.ScoreBoardId;
+import com.uno.scoreboards.domain.scoreboard.values.ScoreboardId;
 import com.uno.scoreboards.domain.scoreboard.values.State;
 import com.uno.shared.domain.constants.StateEnum;
 import com.uno.shared.domain.generic.AggregateRoot;
 
 import java.util.List;
 
-public class ScoreBoard extends AggregateRoot<ScoreBoardId> {
+public class Scoreboard extends AggregateRoot<ScoreboardId> {
   private State state;
   private List<Player> players;
   private RoundHistory roundHistory;
 
   // region Constructors
-  public ScoreBoard() {
-    super(new ScoreBoardId());
+  public Scoreboard() {
+    super(new ScoreboardId());
     this.state = State.of(StateEnum.IN_PROGRESS.name());
   }
 
-  private ScoreBoard(ScoreBoardId identity) {
+  private Scoreboard(ScoreboardId identity) {
     super(identity);
   }
   // endregion

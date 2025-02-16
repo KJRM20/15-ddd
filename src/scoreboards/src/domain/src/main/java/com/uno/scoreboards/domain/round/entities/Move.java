@@ -3,32 +3,32 @@ package com.uno.scoreboards.domain.round.entities;
 import com.uno.scoreboards.domain.round.values.MoveId;
 import com.uno.scoreboards.domain.round.values.PlayerId;
 import com.uno.scoreboards.domain.round.values.Points;
-import com.uno.scoreboards.domain.round.values.Type;
+import com.uno.scoreboards.domain.round.values.Card;
 import com.uno.scoreboards.domain.round.values.TypeEnum;
 import com.uno.shared.domain.generic.Entity;
 
 public class Move extends Entity<MoveId> {
   private PlayerId playerId;
-  private Type type;
+  private Card card;
   private Points points;
 
-  public Move(MoveId identity, PlayerId playerId, Type type) {
+  public Move(MoveId identity, PlayerId playerId, Card card) {
     super(identity);
-    this.type = type;
+    this.card = card;
     this.points = Points.of(0);
   }
 
-  public Move(PlayerId playerId, Type type) {
+  public Move(PlayerId playerId, Card card) {
     super(new MoveId());
-    this.type = type;
+    this.card = card;
     this.points = Points.of(0);
   }
 
-  private void assignPoints() {
-    TypeEnum typeEnum = TypeEnum.valueOf(type.getValue().toUpperCase());
+  public void assignPoints() {
+    TypeEnum typeEnum = TypeEnum.valueOf(card.getType().toUpperCase());
 
     if (typeEnum.equals(TypeEnum.NUMBER)) {
-      points = Points.of(type.getNumber());
+      points = Points.of(card.getNumber());
     } else {
       points = Points.of(typeEnum.getPoints());
     }
@@ -42,12 +42,12 @@ public class Move extends Entity<MoveId> {
     this.playerId = playerId;
   }
 
-  public Type getType() {
-    return type;
+  public Card geCard() {
+    return card;
   }
 
-  public void setType(Type type) {
-    this.type = type;
+  public void setCard(Card card) {
+    this.card = card;
   }
 
   public Points getPoints() {

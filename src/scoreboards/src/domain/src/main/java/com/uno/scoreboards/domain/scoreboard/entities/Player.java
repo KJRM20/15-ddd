@@ -21,8 +21,8 @@ public class Player extends Entity<PlayerId> {
     this.score = score;
   }
 
-  public void updateScore(Score score) {
-    this.score = score;
+  public void addPointsToScore(Integer points) {
+    this.score = Score.of(score.getValue() + points);
   }
 
   public boolean hasReachedTargetScore(Integer targetScore) {
