@@ -60,7 +60,6 @@ public class RoundHandler extends DomainActionsContainer {
 
   public Consumer<? extends DomainEvent> assignRoundWinner(Round round) {
     return (AssignedRoundWinner event) -> {
-      round.validateFinishedRound();
       RoundWinner roundWinner = RoundWinner.of(PlayerId.of(event.getRoundWinner()), Points.of(event.getExtraPoints()));
       Result result = new Result( round.getResult().getResultPlayers(), roundWinner);
       round.setResult(result);
@@ -76,6 +75,7 @@ public class RoundHandler extends DomainActionsContainer {
 
   public Consumer<? extends DomainEvent> finishRound(Round round) {
     return (FinishedRound event) -> {
+      round.validateHaveRoundWinner();
       State state = State.of(StateEnum.FINISHED.name());
       round.setState(state);
     };

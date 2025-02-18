@@ -92,5 +92,11 @@ public class Round extends AggregateRoot<RoundId> {
       throw new IllegalStateException("Round must be in finished state");
     }
   }
+
+  public void validateHaveRoundWinner() {
+    if (getResult().getRoundWinner() == null) {
+      throw new IllegalStateException("Round must have winner");
+    }
+  }
   // endregion
 }
