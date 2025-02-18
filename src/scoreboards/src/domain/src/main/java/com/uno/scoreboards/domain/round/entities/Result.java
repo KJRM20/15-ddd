@@ -53,7 +53,7 @@ public class Result extends Entity<ResultId> {
     if(playerId.equals(roundWinner.getPlayerId())){
       return roundWinner.getExtraPoints();
     }
-      return Points.of(0);
+    return Points.of(0);
   }
 
   public List<ResultPlayer> getResultPlayers() {

@@ -4,6 +4,7 @@ import com.uno.scoreboards.domain.scoreboard.entities.Player;
 import com.uno.scoreboards.domain.scoreboard.entities.RoundHistory;
 import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.AddedRoundToHistory;
+import com.uno.scoreboards.domain.scoreboard.events.CreatedScoreboard;
 import com.uno.scoreboards.domain.scoreboard.events.ReachedPlayerTargetScore;
 import com.uno.scoreboards.domain.scoreboard.events.RevertedHistoryToRound;
 import com.uno.scoreboards.domain.scoreboard.events.UpdatedPlayerPoints;
@@ -22,11 +23,13 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
   // region Constructors
   public Scoreboard() {
     super(new ScoreboardId());
-    this.state = State.of(StateEnum.IN_PROGRESS.name());
+    subscribe(new ScoreboardHandler(this));
+    apply(new CreatedScoreboard());
   }
 
   private Scoreboard(ScoreboardId identity) {
     super(identity);
+    subscribe(new ScoreboardHandler(this));
   }
   // endregion
 
@@ -57,8 +60,8 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
   // endregion
 
   // region Domain Actions
-  public void addPlayer(String name, Integer score) {
-    apply(new AddedPlayer(name, score));
+  public void addPlayer(String name) {
+    apply(new AddedPlayer(name));
   }
 
   public void addRoundToHistory(String roundId, String roundWinnerId) {
@@ -79,12 +82,10 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
   // endregion
 
   // region Public Methods
-  public void startRoundState() {
-    state = State.of(StateEnum.IN_PROGRESS.name());
-  }
-
-  public void finishRoundState() {
-    state = State.of(StateEnum.FINISHED.name());
+  public void validatePlayersQuantity() {
+    if(getPlayers().size() >= 10){
+      throw new IllegalStateException("Scoreboard must have a maximum of 10 players");
+    }
   }
   // endregion
 }

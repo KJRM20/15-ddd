@@ -2,7 +2,7 @@ package com.uno.scoreboards.domain.scoreboard.events;
 
 public enum EventsEnum {
   CREATED_SCOREBOARD,
-  UPDATED_SCOREBOARD,
+  SCOREBOARD_LOCKED,
   ADDED_PLAYER,
   ADDED_ROUND_TO_HISTORY,
   REVERTED_HISTORY_TO_ROUND,

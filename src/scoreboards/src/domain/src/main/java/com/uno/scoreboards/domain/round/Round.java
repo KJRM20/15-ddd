@@ -6,8 +6,8 @@ import com.uno.scoreboards.domain.round.entities.Strike;
 import com.uno.scoreboards.domain.round.events.AppliedStrike;
 import com.uno.scoreboards.domain.round.events.AssignedRoundWinner;
 import com.uno.scoreboards.domain.round.events.CalculatedResult;
-import com.uno.scoreboards.domain.round.events.FinishedRound;
 import com.uno.scoreboards.domain.round.events.RecordedMove;
+import com.uno.scoreboards.domain.round.events.StartedRound;
 import com.uno.scoreboards.domain.round.values.RoundId;
 import com.uno.scoreboards.domain.round.values.State;
 import com.uno.shared.domain.constants.StateEnum;
@@ -24,11 +24,13 @@ public class Round extends AggregateRoot<RoundId> {
   // region Constructors
   public Round() {
     super(new RoundId());
-    this.state = State.of(StateEnum.IN_PROGRESS.name());
+    subscribe(new RoundHandler(this));
+    apply(new StartedRound());
   }
 
   private Round(RoundId identity) {
     super(identity);
+    subscribe(new RoundHandler(this));
   }
   // endregion
 
@@ -67,8 +69,8 @@ public class Round extends AggregateRoot<RoundId> {
   // endregion
 
   // region Domain Actions
-  public void recordMove(String playerId, String type) {
-    apply(new RecordedMove(playerId, type));
+  public void recordMove(String playerId, String type, Integer number) {
+    apply(new RecordedMove(playerId, type, number));
   }
 
   public void applyStrike(String playerId, String details, Integer reducedPoints) {
@@ -79,18 +81,16 @@ public class Round extends AggregateRoot<RoundId> {
     apply(new AssignedRoundWinner(winnerId, extraPoints));
   }
 
-  public void calculateResult(List<String> playerIds, List<Integer> pointsGained, List<Integer> pointsReduced, List<Integer> totalPoints, String roundWinnerId, Integer roundWinnerExtraPoints) {
-    apply(new CalculatedResult(playerIds, pointsGained, pointsReduced, totalPoints, roundWinnerId, roundWinnerExtraPoints));
+  public void calculateResult() {
+    apply(new CalculatedResult());
   }
   // endregion
 
   // region Public Methods
-  public void startRoundState() {
-    state = State.of(StateEnum.IN_PROGRESS.name());
-  }
-
-  public void finishRoundState() {
-    state = State.of(StateEnum.FINISHED.name());
+  public void validateFinishedRound() {
+    if(!getState().equals(State.of(StateEnum.FINISHED.name()))){
+      throw new IllegalStateException("Round must be in finished state");
+    }
   }
   // endregion
 }
