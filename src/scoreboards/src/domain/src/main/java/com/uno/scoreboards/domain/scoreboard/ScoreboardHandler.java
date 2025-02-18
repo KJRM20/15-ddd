@@ -85,6 +85,7 @@ public class ScoreboardHandler extends DomainActionsContainer {
 
   public Consumer<? extends DomainEvent> scoreboardLocked(Scoreboard scoreboard) {
     return (ScoreboardLocked event) -> {
+      scoreboard.validateHaveWinner();
       State state = State.of(StateEnum.FINISHED.name());
       scoreboard.setState(state);
     };

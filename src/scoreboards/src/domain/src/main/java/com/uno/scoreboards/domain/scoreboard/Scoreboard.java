@@ -8,6 +8,7 @@ import com.uno.scoreboards.domain.scoreboard.events.CreatedScoreboard;
 import com.uno.scoreboards.domain.scoreboard.events.ReachedPlayerTargetScore;
 import com.uno.scoreboards.domain.scoreboard.events.RevertedHistoryToRound;
 import com.uno.scoreboards.domain.scoreboard.events.UpdatedPlayerPoints;
+import com.uno.scoreboards.domain.scoreboard.values.IsWinner;
 import com.uno.scoreboards.domain.scoreboard.values.ScoreboardId;
 import com.uno.scoreboards.domain.scoreboard.values.State;
 import com.uno.shared.domain.constants.StateEnum;
@@ -85,6 +86,12 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
   public void validatePlayersQuantity() {
     if(getPlayers().size() >= 10){
       throw new IllegalStateException("Scoreboard must have a maximum of 10 players");
+    }
+  }
+
+  public void validateHaveWinner() {
+    if(getPlayers().stream().filter(player -> player.getIsWinner().equals(IsWinner.of(true))).count() == 0){
+      throw new IllegalStateException("Scoreboard must have a winner");
     }
   }
   // endregion
