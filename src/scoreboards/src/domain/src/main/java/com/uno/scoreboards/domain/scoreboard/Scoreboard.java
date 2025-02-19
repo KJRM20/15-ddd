@@ -63,8 +63,8 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
   // endregion
 
   // region Domain Actions
-  public void addPlayer(String name) {
-    apply(new AddedPlayer(name));
+  public void addPlayer(String playerId, String name) {
+    apply(new AddedPlayer(playerId, name));
   }
 
   public void addRoundToHistory(String roundId) {

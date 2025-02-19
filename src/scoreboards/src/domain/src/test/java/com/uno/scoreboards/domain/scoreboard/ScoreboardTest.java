@@ -32,11 +32,12 @@ class ScoreboardTest {
 
   @Test
   void testAddPlayerSuccess() {
-    Player player = new Player(Name.of("player1"), Score.of(0), IsWinner.of(false));
-    scoreboard.addPlayer(player.getName().getValue());
+    Player player = new Player(PlayerId.of("1"), Name.of("player1"), Score.of(0), IsWinner.of(false));
+    scoreboard.addPlayer(player.getIdentity().getValue(), player.getName().getValue());
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     assertEquals(1, scoreboard.getPlayers().size());
+    assertEquals("1", scoreboard.getPlayers().get(playerId).getIdentity().getValue());
     assertEquals("player1", scoreboard.getPlayers().get(playerId).getName().getValue());
     assertEquals(0, scoreboard.getPlayers().get(playerId).getScore().getValue());
     assertFalse(scoreboard.getPlayers().get(playerId).getIsWinner().getValue());
@@ -44,7 +45,7 @@ class ScoreboardTest {
 
   @Test
   void testUpdatePlayerPointsSuccess() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     scoreboard.updatePlayerPoints(playerId.getValue(), 10);
@@ -53,7 +54,7 @@ class ScoreboardTest {
 
   @Test
   void testReachPlayerTargetScoreSuccess() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     scoreboard.updatePlayerPoints(playerId.getValue(), 10);
@@ -79,7 +80,7 @@ class ScoreboardTest {
 
   @Test
   void testBlockScoreboardSuccess() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     scoreboard.updatePlayerPoints(playerId.getValue(), 10);
@@ -90,23 +91,24 @@ class ScoreboardTest {
 
   @Test
   void testValidatePlayerQuantitySuccess() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     assertDoesNotThrow(scoreboard::validatePlayersQuantity);
   }
 
   @Test
   void testValidatePlayerQuantityFail() {
     Scoreboard scoreboard1 = new Scoreboard();
-    for (String player : getPlayers()) {
-      scoreboard1.addPlayer(player);
+    for (int i = 0; i < getPlayers().size(); i++) {
+      String id = Integer.toString(i+1);
+      scoreboard1.addPlayer(id,getPlayers().get(i));
     }
 
-    assertThrows(IllegalStateException.class, () -> scoreboard1.addPlayer("player11"));
+    assertThrows(IllegalStateException.class, () -> scoreboard1.addPlayer("11","player11"));
   }
 
   @Test
   void testValidateHaveWinnerSuccess() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     scoreboard.updatePlayerPoints(playerId.getValue(), 10);
@@ -117,7 +119,7 @@ class ScoreboardTest {
 
   @Test
   void testValidateHaveWinnerFail() {
-    scoreboard.addPlayer("player1");
+    scoreboard.addPlayer("1","player1");
     List<Player> players = List.copyOf(scoreboard.getPlayers().values());
     PlayerId playerId = players.get(0).getIdentity();
     scoreboard.updatePlayerPoints(playerId.getValue(), 0);
@@ -129,34 +131,38 @@ class ScoreboardTest {
   @Test
   void testFromSuccess(){
     Scoreboard scoreboard1 = new Scoreboard();
-    for (String player : getPlayers()) {
-      scoreboard1.addPlayer(player);
+    for (int i = 0; i < getPlayers().size(); i++) {
+      String id = Integer.toString(i+1);
+      scoreboard1.addPlayer(id,getPlayers().get(i));
     }
 
-    List<Player> players = List.copyOf(scoreboard1.getPlayers().values());
-    PlayerId playerId = players.get(0).getIdentity();
     scoreboard1.addRoundToHistory("round1");
-    scoreboard1.updatePlayerPoints(playerId.getValue(), 10);
-    scoreboard1.reachPlayerTargetScore(playerId.getValue(), 10);
+    scoreboard1.updatePlayerPoints("1", 10);
+    scoreboard1.reachPlayerTargetScore("1", 10);
     scoreboard1.lockScoreboard();
 
     Scoreboard scoreboard2 = Scoreboard.from(scoreboard1.getIdentity().getValue(), scoreboard1.getUncommittedEvents());
     assertNotNull(scoreboard2);
-    List<Player> players2 = List.copyOf(scoreboard2.getPlayers().values());
-    PlayerId playerId2 = players2.get(0).getIdentity();
-    System.out.println(scoreboard2.getPlayers());
-    System.out.println(playerId2.getValue());
-    System.out.println("Id 1: " + playerId.getValue());
-    System.out.println("Id 2: " + playerId2.getValue());
-
     assertEquals(scoreboard1.getState().getValue(), scoreboard2.getState().getValue());
     assertEquals(scoreboard1.getPlayers().size(), scoreboard2.getPlayers().size());
     assertEquals(scoreboard1.getRoundHistory().getTotalRounds(), scoreboard2.getRoundHistory().getTotalRounds());
-    assertEquals(scoreboard1.getPlayers().get(players.get(0).getIdentity()).getScore().getValue(), scoreboard2.getPlayers().get(players2.get(0).getIdentity()).getScore().getValue());
-    assertEquals(scoreboard1.getPlayers().get(players.get(0).getIdentity()).getIsWinner().getValue(), scoreboard2.getPlayers().get(players2.get(0).getIdentity()).getIsWinner().getValue());
+
+    PlayerId playerId1 = getPlayerId("1", scoreboard1);
+    PlayerId playerId2 = getPlayerId("1", scoreboard2);
+
+    assertEquals(scoreboard1.getPlayers().get(playerId1).getScore().getValue(), scoreboard2.getPlayers().get(playerId2).getScore().getValue());
+    assertEquals(scoreboard1.getPlayers().get(playerId1).getIsWinner().getValue(), scoreboard2.getPlayers().get(playerId2).getIsWinner().getValue());
   }
 
   private List<String> getPlayers() {
     return List.of("player1", "player2", "player3", "player4","player5","player6", "player7", "player8", "player9", "player10");
+  }
+
+  private PlayerId getPlayerId(String playerId, Scoreboard scoreboard) {
+    return scoreboard.getPlayers().values().stream()
+      .filter(player -> player.getIdentity().getValue().equals(playerId))
+      .map(Player::getIdentity)
+      .findFirst()
+      .orElseThrow();
   }
 }

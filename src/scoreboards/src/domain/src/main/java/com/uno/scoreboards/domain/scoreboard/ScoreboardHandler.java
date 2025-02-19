@@ -48,7 +48,7 @@ public class ScoreboardHandler extends DomainActionsContainer {
   public Consumer<? extends DomainEvent> addPlayer(Scoreboard scoreboard) {
     return (AddedPlayer event) -> {
       scoreboard.validatePlayersQuantity();
-      Player player = new Player(Name.of(event.getPlayerName()), Score.of(0), IsWinner.of(false));
+      Player player = new Player(PlayerId.of(event.getPlayerId()), Name.of(event.getPlayerName()), Score.of(0), IsWinner.of(false));
       scoreboard.getPlayers().put(player.getIdentity(), player);
     };
   }
