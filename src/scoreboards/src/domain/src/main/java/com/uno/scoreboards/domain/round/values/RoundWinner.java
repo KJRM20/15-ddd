@@ -9,9 +9,9 @@ public class RoundWinner implements IValueObject {
   private final Points extraPoints;
 
   private RoundWinner(PlayerId playerId, Points extraPoints) {
-    validate();
     this.playerId = playerId;
     this.extraPoints = extraPoints;
+    validate();
   }
 
   public static RoundWinner of(PlayerId playerId, Points extraPoints) {

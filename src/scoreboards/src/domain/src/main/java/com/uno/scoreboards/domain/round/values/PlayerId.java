@@ -9,6 +9,7 @@ public class PlayerId implements IValueObject {
 
   private PlayerId(String value) {
     this.value = value;
+    validate();
   }
 
   public static PlayerId of(String value) {

@@ -52,7 +52,7 @@ public class RoundHandler extends DomainActionsContainer {
 
   public Consumer<? extends DomainEvent> applyStrike(Round round) {
     return (AppliedStrike event) -> {
-      Strike strike = new Strike(PlayerId.of(event.getPlayerId()), Details.of(event.getDetails()), Points.of(event.getReducedPoints()));
+      Strike strike = new Strike(PlayerId.of(event.getPlayerId()), Details.of(event.getDetails()), Points.of(0));
       strike.assignReducedPoints();
       round.getStrikes().add(strike);
     };

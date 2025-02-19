@@ -4,7 +4,7 @@ import com.uno.shared.domain.generic.DomainEvent;
 
 public class FinishedRound extends DomainEvent {
 
-  public FinishedRound(String roundWinnerId, Integer roundWinnerExtraPoints) {
+  public FinishedRound() {
     super(EventsEnum.FINISHED_ROUND.name());
   }
 

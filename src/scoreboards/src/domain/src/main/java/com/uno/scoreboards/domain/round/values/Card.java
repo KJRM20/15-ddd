@@ -12,9 +12,9 @@ public class Card implements IValueObject {
   private final Integer number;
 
   private Card(String value, Integer number) {
-    validate();
     this.number = number;
     this.type = value;
+    validate();
   }
 
   public static Card of(String value, Integer number) {

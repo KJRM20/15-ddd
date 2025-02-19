@@ -8,8 +8,8 @@ public class Points implements IValueObject {
   private final Integer value;
 
   private Points(Integer value) {
-    validate();
     this.value = value;
+    validate();
   }
 
   public static Points of(Integer value) {

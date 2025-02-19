@@ -10,8 +10,8 @@ public class Details implements IValueObject {
   private final String value;
 
   private Details(String value) {
-    validate();
     this.value = value;
+    validate();
   }
 
   public static Details of(String value) {

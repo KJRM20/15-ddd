@@ -21,6 +21,8 @@ import com.uno.shared.domain.generic.DomainActionsContainer;
 import com.uno.shared.domain.generic.DomainEvent;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class ScoreboardHandler extends DomainActionsContainer {
@@ -31,14 +33,14 @@ public class ScoreboardHandler extends DomainActionsContainer {
     add(reachPlayerTargetScore(scoreboard));
     add(addRoundToHistory(scoreboard));
     add(revertHistoryToRound(scoreboard));
-    add(scoreboardLocked(scoreboard));
+    add(lockScoreboard(scoreboard));
   }
 
   public Consumer<? extends DomainEvent> createScoreboard(Scoreboard scoreboard) {
     return (CreatedScoreboard event) -> {
       State state = State.of(StateEnum.IN_PROGRESS.name());
       scoreboard.setState(state);
-      scoreboard.setPlayers(new ArrayList<>());
+      scoreboard.setPlayers(new HashMap<>());
       scoreboard.setRoundHistory(new RoundHistory( RoundList.of(new ArrayList<>())));
     };
   }
@@ -47,25 +49,32 @@ public class ScoreboardHandler extends DomainActionsContainer {
     return (AddedPlayer event) -> {
       scoreboard.validatePlayersQuantity();
       Player player = new Player(Name.of(event.getPlayerName()), Score.of(0), IsWinner.of(false));
-      scoreboard.getPlayers().add(player);
+      scoreboard.getPlayers().put(player.getIdentity(), player);
     };
   }
 
   public Consumer<? extends DomainEvent> updatePlayerPoints(Scoreboard scoreboard) {
     return (UpdatedPlayerPoints event) -> {
-      scoreboard.getPlayers().stream()
-        .filter(player -> player.getIdentity().equals(PlayerId.of(event.getPlayerId())))
-        .findFirst()
-        .ifPresent(player -> player.addPointsToScore(event.getPoints()));
+      List<Player> players = List.copyOf(scoreboard.getPlayers().values());
+      players.stream().filter(p ->
+        p.getIdentity().getValue()
+          .equals(event.getPlayerId()))
+          .findFirst()
+          .ifPresent(player -> scoreboard.getPlayers().get(player.getIdentity()).addPointsToScore(event.getPoints()));
     };
   }
 
   public Consumer<? extends DomainEvent> reachPlayerTargetScore(Scoreboard scoreboard) {
     return (ReachedPlayerTargetScore event) -> {
-      scoreboard.getPlayers().stream()
-        .filter(player -> player.getIdentity().equals(PlayerId.of(event.getPlayerId())))
-        .findFirst()
-        .ifPresent(player -> player.setIsWinner(IsWinner.of(true)));
+      List<Player> players = List.copyOf(scoreboard.getPlayers().values());
+      players.stream().filter(p ->
+        p.getIdentity().getValue()
+          .equals(event.getPlayerId()))
+          .findFirst().ifPresent(player -> scoreboard.getPlayers()
+          .get(player.getIdentity())
+          .setIsWinner(
+            IsWinner.of(scoreboard.getPlayers().get(player.getIdentity())
+            .hasReachedTargetScore(event.getTargetScore()))));
     };
   }
 
@@ -83,7 +92,7 @@ public class ScoreboardHandler extends DomainActionsContainer {
     };
   }
 
-  public Consumer<? extends DomainEvent> scoreboardLocked(Scoreboard scoreboard) {
+  public Consumer<? extends DomainEvent> lockScoreboard(Scoreboard scoreboard) {
     return (ScoreboardLocked event) -> {
       scoreboard.validateHaveWinner();
       State state = State.of(StateEnum.FINISHED.name());

@@ -11,11 +11,11 @@ public class ResultPlayer implements IValueObject {
   private final TotalPoints totalPoints;
 
   private ResultPlayer(PlayerId playerId, Points pointsGained, Points pointsReduced, TotalPoints totalPoints) {
-    validate();
     this.playerId = playerId;
     this.pointsGained = pointsGained;
     this.pointsReduced = pointsReduced;
     this.totalPoints = totalPoints;
+    validate();
   }
 
   public static ResultPlayer of(PlayerId playerId, Points pointsGained, Points pointsReduced, TotalPoints totalPoints) {

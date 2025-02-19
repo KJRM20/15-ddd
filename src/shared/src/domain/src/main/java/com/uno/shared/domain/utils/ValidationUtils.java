@@ -32,7 +32,7 @@ public class ValidationUtils {
   }
 
   public static void validateStringList(List<String> input, String errorMessage) {
-    if (input == null || input.isEmpty()) {
+    if (input == null) {
       throw new IllegalArgumentException(errorMessage);
     }
     for (String item : input) {

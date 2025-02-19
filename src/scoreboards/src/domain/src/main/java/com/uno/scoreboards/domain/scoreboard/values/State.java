@@ -1,15 +1,14 @@
 package com.uno.scoreboards.domain.scoreboard.values;
 
 import com.uno.shared.domain.generic.IValueObject;
-
 import static com.uno.shared.domain.utils.ValidationUtils.validateState;
 
 public class State implements IValueObject {
   private final String value;
 
   private State(String value) {
-    validate();
     this.value = value;
+    validate();
   }
 
   public static State of(String value) {

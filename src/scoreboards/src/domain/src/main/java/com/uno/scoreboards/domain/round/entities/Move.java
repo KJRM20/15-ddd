@@ -14,12 +14,14 @@ public class Move extends Entity<MoveId> {
 
   public Move(MoveId identity, PlayerId playerId, Card card) {
     super(identity);
+    this.playerId = playerId;
     this.card = card;
     this.points = Points.of(0);
   }
 
   public Move(PlayerId playerId, Card card) {
     super(new MoveId());
+    this.playerId = playerId;
     this.card = card;
     this.points = Points.of(0);
   }

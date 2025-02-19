@@ -6,12 +6,14 @@ import com.uno.scoreboards.domain.round.entities.Strike;
 import com.uno.scoreboards.domain.round.events.AppliedStrike;
 import com.uno.scoreboards.domain.round.events.AssignedRoundWinner;
 import com.uno.scoreboards.domain.round.events.CalculatedResult;
+import com.uno.scoreboards.domain.round.events.FinishedRound;
 import com.uno.scoreboards.domain.round.events.RecordedMove;
 import com.uno.scoreboards.domain.round.events.StartedRound;
 import com.uno.scoreboards.domain.round.values.RoundId;
 import com.uno.scoreboards.domain.round.values.State;
 import com.uno.shared.domain.constants.StateEnum;
 import com.uno.shared.domain.generic.AggregateRoot;
+import com.uno.shared.domain.generic.DomainEvent;
 
 import java.util.List;
 
@@ -73,8 +75,8 @@ public class Round extends AggregateRoot<RoundId> {
     apply(new RecordedMove(playerId, type, number));
   }
 
-  public void applyStrike(String playerId, String details, Integer reducedPoints) {
-    apply(new AppliedStrike(playerId, details, reducedPoints));
+  public void applyStrike(String playerId, String details) {
+    apply(new AppliedStrike(playerId, details));
   }
 
   public void assignRoundWinner(String winnerId, Integer extraPoints) {
@@ -84,11 +86,15 @@ public class Round extends AggregateRoot<RoundId> {
   public void calculateResult() {
     apply(new CalculatedResult());
   }
+
+  public void finishRound() {
+    apply(new FinishedRound());
+  }
   // endregion
 
   // region Public Methods
   public void validateFinishedRound() {
-    if(!getState().equals(State.of(StateEnum.FINISHED.name()))){
+    if(!getState().getValue().equals(StateEnum.FINISHED.name())){
       throw new IllegalStateException("Round must be in finished state");
     }
   }
@@ -98,5 +104,12 @@ public class Round extends AggregateRoot<RoundId> {
       throw new IllegalStateException("Round must have winner");
     }
   }
+
+  public static Round from(final String identity, final List<DomainEvent> events) {
+    Round round = new Round(RoundId.of(identity));
+    events.forEach(round::apply);
+    return round;
+  }
   // endregion
+
 }

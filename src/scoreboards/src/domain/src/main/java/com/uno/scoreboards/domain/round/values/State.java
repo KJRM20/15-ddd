@@ -8,8 +8,8 @@ public class State implements IValueObject {
   private final String value;
 
   private State(String value) {
-    validate();
     this.value = value;
+    validate();
   }
 
   public static State of(String value) {

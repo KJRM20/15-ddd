@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import static java.util.stream.Collectors.toList;
+
 public class Result extends Entity<ResultId> {
   private List<ResultPlayer> resultPlayers;
   private RoundWinner roundWinner;
@@ -30,27 +32,27 @@ public class Result extends Entity<ResultId> {
   }
 
   public void calculateResult(List<Move> moves, List<Strike> strikes) {
-    Set<PlayerId> playerIds = new HashSet<>();
-    moves.forEach(move -> playerIds.add(move.getPlayerId()));
-    strikes.forEach(strike -> playerIds.add(strike.getPlayerId()));
+    Set<String> playerIds = new HashSet<>();
+    moves.forEach(move -> playerIds.add(move.getPlayerId().getValue()));
+    strikes.forEach(strike -> playerIds.add(strike.getPlayerId().getValue()));
 
     resultPlayers = playerIds.stream().map(playerId -> {
-      return calculateResultPlayer(moves, strikes, playerId);
-    }).collect(Collectors.toList());
+      return calculateResultPlayer(moves, strikes, PlayerId.of(playerId));
+    }).collect(toList());
   }
 
   private ResultPlayer calculateResultPlayer(List<Move> moves, List<Strike> strikes,PlayerId playerId) {
     int pointsGained = moves.stream()
-      .filter(move -> move.getPlayerId().equals(playerId)).mapToInt(move -> move.getPoints().getValue()).sum();
+      .filter(move -> move.getPlayerId().getValue().equals(playerId.getValue())).mapToInt(move -> move.getPoints().getValue()).sum();
     int pointsReduced = strikes.stream()
-      .filter(strike -> strike.getPlayerId().equals(playerId)).mapToInt(strike -> strike.getReducedPoints().getValue()).sum();
+      .filter(strike -> strike.getPlayerId().getValue().equals(playerId.getValue())).mapToInt(strike -> strike.getReducedPoints().getValue()).sum();
     int totalPoints = pointsGained - pointsReduced + passingExtraPointsToRoundWinner(playerId).getValue();
 
     return ResultPlayer.of(playerId, Points.of(pointsGained), Points.of(pointsReduced), TotalPoints.of(totalPoints));
   }
 
   private Points passingExtraPointsToRoundWinner(PlayerId playerId) {
-    if(playerId.equals(roundWinner.getPlayerId())){
+    if(playerId.getValue().equals(roundWinner.getPlayerId().getValue())){
       return roundWinner.getExtraPoints();
     }
     return Points.of(0);

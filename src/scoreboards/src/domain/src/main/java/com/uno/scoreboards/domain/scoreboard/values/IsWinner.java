@@ -1,7 +1,6 @@
 package com.uno.scoreboards.domain.scoreboard.values;
 
 import com.uno.shared.domain.generic.IValueObject;
-
 import static com.uno.shared.domain.utils.ValidationUtils.validateNotNull;
 
 public class IsWinner implements IValueObject {
@@ -9,6 +8,7 @@ public class IsWinner implements IValueObject {
 
   private IsWinner(boolean value) {
     this.value = value;
+    validate();
   }
 
   public static IsWinner of(boolean value) {

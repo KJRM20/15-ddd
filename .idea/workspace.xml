@@ -5,9 +5,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8480f11f-3b85-4b8a-9d60-c160e96e95dd" name="Changes" comment="Merge main with origin/main">
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/test/java/com/uno/scoreboards/domain/round/RoundTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/test/java/com/uno/scoreboards/domain/scoreboard/ScoreboardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/Round.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/Round.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/RoundHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/RoundHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/events/AppliedStrike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/events/AppliedStrike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/events/FinishedRound.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/events/FinishedRound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Details.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Details.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/PlayerId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/PlayerId.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Points.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/Points.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/ResultPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/ResultPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/RoundWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/RoundWinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/TotalPoints.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/values/TotalPoints.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/Scoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/Scoreboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/ScoreboardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/ScoreboardHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/events/AddedRoundToHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/events/AddedRoundToHistory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/IsWinner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/IsWinner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Name.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Name.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/RoundList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/RoundList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/values/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/utils/ValidationUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/src/domain/src/main/java/com/uno/shared/domain/utils/ValidationUtils.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +46,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -43,6 +70,7 @@
         <option value="package-info" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -60,9 +88,41 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Gradle.RoundTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.RoundTest.testApplyStrikeFailWrongDetails.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testApplyStrikeSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testAssignRoundWinnerFailWrongExtraPoints.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testAssignRoundWinnerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testCalculateResultSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testFinishRoundSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testFromSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testRecordMoveFailWrongNumber.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testRecordMoveFailWrongType.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testRecordMoveSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testStartRound.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testValidateFinishedRoundFail.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testValidateFinishedRoundSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testValidateHaveRoundWinnerFail.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RoundTest.testValidateHaveRoundWinnerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.executor&quot;: &quot;Coverage&quot;,
+    &quot;Gradle.ScoreboardTest.testAddPlayerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testAddRoundToHistorySuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testBlockScoreboardSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testCreatedScoreboard.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testFromSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testFromSucess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testReachPlayerTargetScoreSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testRevertHistoryToRoundSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testUpdatePlayerPointsSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testValidateHaveWinnerFail.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testValidateHaveWinnerSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testValidatePlayerQuantityFail.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.ScoreboardTest.testValidatePlayerQuantitySuccess.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/Documentos/SofkaU/UNO/src/scoreboards/src&quot;,
@@ -75,6 +135,144 @@
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Documentos\SofkaU\UNO\src\scoreboards\src\domain\src\main\java" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.uno.scoreboards.domain.scoreboard" />
+      <recent name="com.uno.scoreboards.domain.round" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.ScoreboardTest.testFromSuccess">
+    <configuration name="ScoreboardTest.testFromSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:domain:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.domain.scoreboard.ScoreboardTest.testFromSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScoreboardTest.testValidateHaveWinnerFail" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:domain:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.domain.scoreboard.ScoreboardTest.testValidateHaveWinnerFail&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScoreboardTest.testValidateHaveWinnerSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:domain:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.domain.scoreboard.ScoreboardTest.testValidateHaveWinnerSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScoreboardTest.testValidatePlayerQuantityFail" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:domain:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.domain.scoreboard.ScoreboardTest.testValidatePlayerQuantityFail&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="ScoreboardTest.testValidatePlayerQuantitySuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:domain:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.domain.scoreboard.ScoreboardTest.testValidatePlayerQuantitySuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.ScoreboardTest.testFromSuccess" />
+        <item itemvalue="Gradle.ScoreboardTest.testValidateHaveWinnerFail" />
+        <item itemvalue="Gradle.ScoreboardTest.testValidateHaveWinnerSuccess" />
+        <item itemvalue="Gradle.ScoreboardTest.testValidatePlayerQuantityFail" />
+        <item itemvalue="Gradle.ScoreboardTest.testValidatePlayerQuantitySuccess" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -99,5 +297,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Merge main with origin/main" />
     <option name="LAST_COMMIT_MESSAGE" value="Merge main with origin/main" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/uno$ScoreboardTest.ic" NAME="ScoreboardTest Coverage Results" MODIFIED="1739920002310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$RoundTest.ic" NAME="RoundTest Coverage Results" MODIFIED="1739914859788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>
