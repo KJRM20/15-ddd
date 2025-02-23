@@ -5,7 +5,7 @@ import com.uno.shared.application.Request;
 public class CheckGameStatusRequest extends Request {
   private final Integer targetScore;
 
-  protected CheckGameStatusRequest(String aggregateId, Integer targetScore) {
+  public CheckGameStatusRequest(String aggregateId, Integer targetScore) {
     super(aggregateId);
     this.targetScore = targetScore;
   }

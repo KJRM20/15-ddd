@@ -17,6 +17,26 @@ public class RoundResponse {
     this.result = result;
   }
 
+  public String getRoundId() {
+    return roundId;
+  }
+
+  public String getState() {
+    return state;
+  }
+
+  public List<Move> getMoves() {
+    return moves;
+  }
+
+  public List<Strike> getStrikes() {
+    return strikes;
+  }
+
+  public Result getResult() {
+    return result;
+  }
+
   public static class Move {
     private final String playerId;
     private final String cardType;
@@ -67,9 +87,9 @@ public class RoundResponse {
 
   public static class Result {
     private final List<ResultPlayer> resultPlayers;
-    private final String roundWinner;
+    private final RoundWinner roundWinner;
 
-    public Result(List<ResultPlayer> resultPlayers, String roundWinner) {
+    public Result(List<ResultPlayer> resultPlayers, RoundWinner roundWinner) {
       this.resultPlayers = resultPlayers;
       this.roundWinner = roundWinner;
     }
@@ -78,7 +98,7 @@ public class RoundResponse {
       return resultPlayers;
     }
 
-    public String getRoundWinner() {
+    public RoundWinner getRoundWinner() {
       return roundWinner;
     }
 
@@ -109,6 +129,24 @@ public class RoundResponse {
 
       public Integer getTotalPoints() {
         return totalPoints;
+      }
+    }
+
+    public static class RoundWinner {
+      private final String playerId;
+      private final Integer extraPoints;
+
+      public RoundWinner(String playerId, Integer extraPoints) {
+        this.playerId = playerId;
+        this.extraPoints = extraPoints;
+      }
+
+      public String getPlayerId() {
+        return playerId;
+      }
+
+      public Integer getExtraPoints() {
+        return extraPoints;
       }
     }
   }

@@ -1,4 +1,4 @@
-package com.uno.scoreboards.application.finishround;
+package com.uno.scoreboards.application.finishgameround;
 
 import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
 import com.uno.scoreboards.application.shared.round.RoundResponse;
@@ -8,15 +8,15 @@ import reactor.core.publisher.Mono;
 
 import static com.uno.scoreboards.application.shared.round.RoundMapper.mapToRound;
 
-public class FinishRoundUseCase implements ICommandUseCase<FinishRoundRequest, Mono<RoundResponse>> {
+public class FinishGameRoundUseCase implements ICommandUseCase<FinishGameRoundRequest, Mono<RoundResponse>> {
   private final IEventsRepository roundRepository;
 
-  public FinishRoundUseCase(IEventsRepository roundRepository) {
+  public FinishGameRoundUseCase(IEventsRepository roundRepository) {
     this.roundRepository = roundRepository;
   }
 
   @Override
-  public Mono<RoundResponse> execute(FinishRoundRequest request) {
+  public Mono<RoundResponse> execute(FinishGameRoundRequest request) {
     return roundRepository.findEventsByAggregateId(request.getAggregateId())
       .collectList()
       .map(events -> {

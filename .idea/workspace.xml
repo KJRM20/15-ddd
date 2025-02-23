@@ -5,32 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3db72c68-10b7-4118-9286-4c5311061d39" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/applystrike/ApplyStrikeRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/applystrike/ApplyStrikeUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/checkgamestatus/CheckGameStatusRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/checkgamestatus/CheckGameStatusUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/creategame/CreateGameRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/creategame/CreateGameUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishround/FinishRoundRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishround/FinishRoundUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/recordmove/RecordMoveRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/recordmove/RecordMoveUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/reverthistorytoround/RevertHistoryToRoundRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/reverthistorytoround/RevertHistoryToRoundUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/repositories/IEventsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/scoreboard/ScoreboardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/scoreboard/ScoreboardResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/application/src/main/java/com/uno/shared/application/ICommandUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/application/src/main/java/com/uno/shared/application/IQueryUseCase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/shared/src/application/src/main/java/com/uno/shared/application/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/startgameround/StartGameRoundRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/startgameround/StartGameRoundUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/updateplayerspoints/UpdatePlayersPointsRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/updateplayerspoints/UpdatePlayersPointsUseCase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/applystrike/ApplyStrikeUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/checkgamestatus/CheckGameStatusUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/creategame/CreateGameUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/finishgameround/FinishGameRoundUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/recordmove/RecordMoveUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/reverthistorytoround/RevertHistoryToRoundUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/startgameround/StartGameRoundUseCaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/test/java/com/uno/scoreboards/application/updateplayerspoints/UpdatePlayersPointsUseCaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/applystrike/ApplyStrikeRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/applystrike/ApplyStrikeRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/checkgamestatus/CheckGameStatusRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/checkgamestatus/CheckGameStatusRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/creategame/CreateGameUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/creategame/CreateGameUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishround/FinishRoundRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishgameround/FinishGameRoundRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishround/FinishRoundUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishgameround/FinishGameRoundUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/shared/round/RoundResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/round/entities/Result.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +42,9 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -64,28 +64,178 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2tMdQqKREqLK73u1BdU6dyLvUe6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.ApplyStrikeUseCaseTest.executor": "Coverage",
+    "Gradle.ApplyStrikeUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.CheckGameStatusUseCaseTest.executor": "Coverage",
+    "Gradle.CheckGameStatusUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.CreateGameUseCaseTest.executor": "Coverage",
+    "Gradle.CreateGameUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.FinishGameRoundUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.RecordMoveUseCaseTest.executor": "Coverage",
+    "Gradle.RecordMoveUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.RevertHistoryToRoundUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.StartGameRoundUseCaseTest.testExecuteSuccess.executor": "Run",
+    "Gradle.Tests in 'com.uno.scoreboards.application'.executor": "Coverage",
+    "Gradle.Tests in 'uno.scoreboards.application.test'.executor": "Coverage",
+    "Gradle.UpdatePlayersPointsUseCaseTest.testExecuteSuccess.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.uno.scoreboards.application.updateplayerspoints" />
+      <recent name="com.uno.scoreboards.application.startgameround" />
+      <recent name="com.uno.scoreboards.application.reverthistorytoround" />
+      <recent name="com.uno.scoreboards.application.recordmove" />
+      <recent name="com.uno.scoreboards.application.finishgameround" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Gradle.Tests in 'uno.scoreboards.application.test'">
+    <configuration name="RecordMoveUseCaseTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:application:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.application.recordmove.RecordMoveUseCaseTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="RevertHistoryToRoundUseCaseTest.testExecuteSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:application:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.application.reverthistorytoround.RevertHistoryToRoundUseCaseTest.testExecuteSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="StartGameRoundUseCaseTest.testExecuteSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:application:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.application.startgameround.StartGameRoundUseCaseTest.testExecuteSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="Tests in 'uno.scoreboards.application.test'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:application:test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
+    <configuration name="UpdatePlayersPointsUseCaseTest.testExecuteSuccess" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":scoreboards:application:test" />
+            <option value="--tests" />
+            <option value="&quot;com.uno.scoreboards.application.updateplayerspoints.UpdatePlayersPointsUseCaseTest.testExecuteSuccess&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
         <option name="Make" enabled="true" />
@@ -97,6 +247,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.Tests in 'uno.scoreboards.application.test'" />
+        <item itemvalue="Gradle.UpdatePlayersPointsUseCaseTest.testExecuteSuccess" />
+        <item itemvalue="Gradle.StartGameRoundUseCaseTest.testExecuteSuccess" />
+        <item itemvalue="Gradle.RevertHistoryToRoundUseCaseTest.testExecuteSuccess" />
+        <item itemvalue="Gradle.RecordMoveUseCaseTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -108,5 +267,13 @@
       <updated>1740165863294</updated>
     </task>
     <servers />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/uno$RecordMoveUseCaseTest.ic" NAME="RecordMoveUseCaseTest Coverage Results" MODIFIED="1740334583254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$Tests_in__com_uno_scoreboards_application_.ic" NAME="Tests in 'com.uno.scoreboards.application' Coverage Results" MODIFIED="1740334114161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$CreateGameUseCaseTest.ic" NAME="CreateGameUseCaseTest Coverage Results" MODIFIED="1740281304426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$CheckGameStatusUseCaseTest.ic" NAME="CheckGameStatusUseCaseTest Coverage Results" MODIFIED="1740333316885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$ApplyStrikeUseCaseTest.ic" NAME="ApplyStrikeUseCaseTest Coverage Results" MODIFIED="1740332497373" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+    <SUITE FILE_PATH="coverage/uno$Tests_in__uno_scoreboards_application_test_.ic" NAME="Tests in 'uno.scoreboards.application.test' Coverage Results" MODIFIED="1740336722535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
   </component>
 </project>

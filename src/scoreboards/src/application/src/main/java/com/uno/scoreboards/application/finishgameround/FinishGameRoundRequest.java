@@ -1,12 +1,12 @@
-package com.uno.scoreboards.application.finishround;
+package com.uno.scoreboards.application.finishgameround;
 
 import com.uno.shared.application.Request;
 
-public class FinishRoundRequest extends Request {
+public class FinishGameRoundRequest extends Request {
   private final String winnerId;
   private final Integer extraPoints;
 
-  protected FinishRoundRequest(String aggregateId, String winnerId, Integer extraPoints) {
+  public FinishGameRoundRequest(String aggregateId, String winnerId, Integer extraPoints) {
     super(aggregateId);
     this.winnerId = winnerId;
     this.extraPoints = extraPoints;

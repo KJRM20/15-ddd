@@ -6,7 +6,7 @@ public class ApplyStrikeRequest extends Request {
   private final String playerId;
   private final String details;
 
-  protected ApplyStrikeRequest(String aggregateId, String playerId, String details) {
+  public ApplyStrikeRequest(String aggregateId, String playerId, String details) {
     super(aggregateId);
     this.playerId = playerId;
     this.details = details;

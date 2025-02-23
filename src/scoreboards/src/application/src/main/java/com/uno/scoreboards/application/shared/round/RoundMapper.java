@@ -25,7 +25,10 @@ public class RoundMapper {
           resultPlayer.getPointsReduced().getValue(),
           resultPlayer.getTotalPoints().getValue()
         )).toList(),
-        round.getResult().getRoundWinner().getPlayerId().getValue()
+        round.getResult().getRoundWinner() != null ? new RoundResponse.Result.RoundWinner(
+          round.getResult().getRoundWinner().getPlayerId().getValue(),
+          round.getResult().getRoundWinner().getExtraPoints().getValue()
+        ):null
       )
     );
   }

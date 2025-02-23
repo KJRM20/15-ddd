@@ -24,7 +24,6 @@ public class CreateGameUseCase implements ICommandUseCase<CreateGameRequest, Mon
     request.getPlayers().forEach(scoreboard::addPlayer);
     Round round = new Round();
     scoreboard.addRoundToHistory(round.getIdentity().getValue());
-
     scoreboard.getUncommittedEvents().forEach(scoreboardRepository::save);
     round.getUncommittedEvents().forEach(roundRepository::save);
     scoreboard.markEventsAsCommitted();
