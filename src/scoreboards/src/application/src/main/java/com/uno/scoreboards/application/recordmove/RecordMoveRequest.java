@@ -7,7 +7,7 @@ public class RecordMoveRequest extends Request {
   private final String cardType;
   private final Integer number;
 
-  protected RecordMoveRequest(String aggregateId, String playerId, String cardType, Integer number) {
+  public RecordMoveRequest(String aggregateId, String playerId, String cardType, Integer number) {
     super(aggregateId);
     this.playerId = playerId;
     this.cardType = cardType;

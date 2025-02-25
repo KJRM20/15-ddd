@@ -51,7 +51,7 @@ class UpdatePlayersPointsUseCaseTest {
     ));
 
 
-    UpdatePlayersPointsRequest request = new UpdatePlayersPointsRequest("1", "round1");
+    UpdatePlayersPointsRequest request = new UpdatePlayersPointsRequest("1");
     StepVerifier
       .create(updatePlayersPointsUseCase.execute(request))
       .assertNext(response-> {

@@ -6,6 +6,7 @@ import com.uno.scoreboards.domain.round.Round;
 import com.uno.scoreboards.domain.scoreboard.Scoreboard;
 import com.uno.shared.application.ICommandUseCase;
 import com.uno.shared.domain.generic.DomainEvent;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.Comparator;
@@ -22,30 +23,34 @@ public class UpdatePlayersPointsUseCase implements ICommandUseCase<UpdatePlayers
 
   @Override
   public Mono<ScoreboardResponse> execute(UpdatePlayersPointsRequest request) {
-    Mono<List<DomainEvent>> scoreboardEventsMono = repository.findEventsByAggregateId(request.getAggregateId()).collectList();
-    Mono<List<DomainEvent>> roundEventsMono = repository.findEventsByAggregateId(request.getRoundId()).collectList();
+    return repository.findEventsByAggregateId(request.getAggregateId())
+      .collectList()
+      .flatMap(scoreboardEvents -> {
+        scoreboardEvents.sort(Comparator.comparing(DomainEvent::getWhen));
+        Scoreboard scoreboard = Scoreboard.from(request.getAggregateId(), scoreboardEvents);
 
-    return Mono.zip(scoreboardEventsMono, roundEventsMono).map(tuple -> {
-      List<DomainEvent> scoreboardEvents = tuple.getT1();
-      List<DomainEvent> roundEvents = tuple.getT2();
+        List<String> roundIds = scoreboard.getRoundHistory().getRoundHistoryList().getRoundIds();
 
-      scoreboardEvents.sort(Comparator.comparing(DomainEvent::getWhen));
-      roundEvents.sort(Comparator.comparing(DomainEvent::getWhen));
+        return Flux.fromIterable(roundIds)
+          .flatMap(roundId -> repository.findEventsByAggregateId(roundId).collectList()
+            .map(roundEvents -> {
+              roundEvents.sort(Comparator.comparing(DomainEvent::getWhen));
+              return Round.from(roundId, roundEvents);
+            })).collectList()
+          .map(rounds -> updateScoreBoardWithRounds(scoreboard, rounds));
+      });
+  }
 
-      Scoreboard scoreboard = Scoreboard.from(request.getAggregateId(), scoreboardEvents);
-      Round round = Round.from(request.getRoundId(), roundEvents);
-      scoreboard.getPlayers().keySet()
-        .forEach(playerId -> round.getResult()
-          .getResultPlayers().stream()
-          .filter(resultPlayer -> resultPlayer.getPlayerId().getValue().equals(playerId.getValue()))
-          .findFirst()
-          .ifPresent(resultPlayer -> scoreboard.updatePlayerPoints(
-            playerId.getValue(), resultPlayer.getTotalPoints().getValue())));
+  public ScoreboardResponse updateScoreBoardWithRounds(Scoreboard scoreboard, List<Round> rounds) {
+    scoreboard.getPlayers().forEach((playerId, player) -> player.resetScore());
+    rounds.forEach(round -> round.getResult().getResultPlayers().forEach(resultPlayer -> {
+      String playerId = resultPlayer.getPlayerId().getValue();
+      int points = resultPlayer.getTotalPoints().getValue();
+      scoreboard.updatePlayerPoints(playerId, points);
+    }));
 
-      scoreboard.getUncommittedEvents().forEach(repository::save);
-      scoreboard.markEventsAsCommitted();
-
-      return mapToScoreboard(scoreboard);
-    });
+    scoreboard.getUncommittedEvents().forEach(repository::save);
+    scoreboard.markEventsAsCommitted();
+    return mapToScoreboard(scoreboard);
   }
 }

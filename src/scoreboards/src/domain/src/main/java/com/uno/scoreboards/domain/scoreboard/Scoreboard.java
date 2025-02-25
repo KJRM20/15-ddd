@@ -104,8 +104,8 @@ public class Scoreboard extends AggregateRoot<ScoreboardId> {
 
   public static Scoreboard from(final String identity, final List<DomainEvent> events){
     Scoreboard scoreboard = new Scoreboard(ScoreboardId.of(identity));
-
     events.forEach(scoreboard::apply);
+    scoreboard.markEventsAsCommitted();
     return scoreboard;
   }
   // endregion

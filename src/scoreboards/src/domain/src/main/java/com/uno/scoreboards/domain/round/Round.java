@@ -108,6 +108,7 @@ public class Round extends AggregateRoot<RoundId> {
   public static Round from(final String identity, final List<DomainEvent> events) {
     Round round = new Round(RoundId.of(identity));
     events.forEach(round::apply);
+    round.markEventsAsCommitted();
     return round;
   }
   // endregion
