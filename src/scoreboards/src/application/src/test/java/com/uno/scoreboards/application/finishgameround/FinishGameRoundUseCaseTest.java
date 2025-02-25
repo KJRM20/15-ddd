@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.finishgameround;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.domain.round.events.RecordedMove;
 import com.uno.scoreboards.domain.round.events.StartedRound;
 import com.uno.scoreboards.domain.round.values.TypeEnum;
@@ -14,18 +14,18 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class FinishGameRoundUseCaseTest {
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort repository;
   private final FinishGameRoundUseCase finishGameRoundUseCase;
 
   public FinishGameRoundUseCaseTest() {
-    this.roundRepository = mock(IEventsRepository.class);
-    this.finishGameRoundUseCase = new FinishGameRoundUseCase(roundRepository);
+    this.repository = mock(IEventsRepositoryPort.class);
+    this.finishGameRoundUseCase = new FinishGameRoundUseCase(repository);
   }
 
   @Test
   void testExecuteSuccess() {
 
-    when(roundRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
       new StartedRound(),
       new RecordedMove("player1", TypeEnum.NUMBER.name(), 1),
       new RecordedMove("player2", TypeEnum.NUMBER.name(), 2)

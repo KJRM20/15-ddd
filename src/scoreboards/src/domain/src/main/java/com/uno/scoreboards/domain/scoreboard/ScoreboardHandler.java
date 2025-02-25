@@ -88,6 +88,8 @@ public class ScoreboardHandler extends DomainActionsContainer {
   public Consumer<? extends DomainEvent> revertHistoryToRound(Scoreboard scoreboard) {
     return (RevertedHistoryToRound event) -> {
       String roundId = event.getRoundId();
+      scoreboard.getPlayers().values().forEach(player -> player.setIsWinner(IsWinner.of(false)));
+      scoreboard.getPlayers().values().forEach(Player::resetScore);
       scoreboard.getRoundHistory().revertToRound(roundId);
     };
   }

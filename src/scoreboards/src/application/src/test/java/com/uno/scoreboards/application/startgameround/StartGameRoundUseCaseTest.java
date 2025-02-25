@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.startgameround;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.AddedRoundToHistory;
 import com.uno.scoreboards.domain.scoreboard.events.CreatedScoreboard;
@@ -15,14 +15,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class StartGameRoundUseCaseTest {
-  private final IEventsRepository scoreboardRepository;
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort scoreboardRepository;
   private final StartGameRoundUseCase startGameRoundUseCase;
 
   public StartGameRoundUseCaseTest() {
-    this.scoreboardRepository = mock(IEventsRepository.class);
-    this.roundRepository = mock(IEventsRepository.class);
-    this.startGameRoundUseCase = new StartGameRoundUseCase(scoreboardRepository, roundRepository);
+    this.scoreboardRepository = mock(IEventsRepositoryPort.class);
+    this.startGameRoundUseCase = new StartGameRoundUseCase(scoreboardRepository);
   }
 
   @Test

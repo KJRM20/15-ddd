@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.recordmove;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.domain.round.events.StartedRound;
 import com.uno.scoreboards.domain.round.values.TypeEnum;
 import org.junit.jupiter.api.Test;
@@ -13,11 +13,11 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class RecordMoveUseCaseTest {
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort roundRepository;
   private final RecordMoveUseCase recordMoveUseCase;
 
   public RecordMoveUseCaseTest() {
-    this.roundRepository = mock(IEventsRepository.class);
+    this.roundRepository = mock(IEventsRepositoryPort.class);
     this.recordMoveUseCase = new RecordMoveUseCase(roundRepository);
   }
 

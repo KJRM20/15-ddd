@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.creategame;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import org.junit.jupiter.api.Test;
 import reactor.test.StepVerifier;
 
@@ -11,13 +11,11 @@ import static org.mockito.Mockito.mock;
 
 class CreateGameUseCaseTest {
   private final CreateGameUseCase createGameUseCase;
-  private final IEventsRepository scoreboardRepository;
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort repository;
 
   public CreateGameUseCaseTest() {
-    scoreboardRepository = mock(IEventsRepository.class);
-    roundRepository = mock(IEventsRepository.class);
-    createGameUseCase = new CreateGameUseCase(scoreboardRepository, roundRepository);
+    repository = mock(IEventsRepositoryPort.class);
+    createGameUseCase = new CreateGameUseCase(repository);
   }
 
   @Test

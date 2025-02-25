@@ -4,8 +4,12 @@ include ':shared:domain'
 include ':shared:application'
 include ':scoreboards:domain'
 include ':scoreboards:application'
+include ':scoreboards:mongo'
+include ':scoreboards:main-service'
 
 project(':shared:domain').projectDir = file('./src/shared/src/domain')
 project(':shared:application').projectDir = file('./src/shared/src/application')
 project(':scoreboards:domain').projectDir = file('./src/scoreboards/src/domain')
 project(':scoreboards:application').projectDir = file('./src/scoreboards/src/application')
+project(':scoreboards:mongo').projectDir = file('./src/scoreboards/src/infrastructure/driven-adapters/mongo')
+project(':scoreboards:main-service').projectDir = file('./src/scoreboards/src/infrastructure/driving-adapters/main-service')

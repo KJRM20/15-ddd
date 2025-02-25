@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.updateplayerspoints;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.application.shared.scoreboard.ScoreboardResponse;
 import com.uno.scoreboards.domain.round.events.AssignedRoundWinner;
 import com.uno.scoreboards.domain.round.events.CalculatedResult;
@@ -24,26 +24,24 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class UpdatePlayersPointsUseCaseTest {
-  private final IEventsRepository scoreboardRepository;
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort repository;
   private final UpdatePlayersPointsUseCase updatePlayersPointsUseCase;
 
   public UpdatePlayersPointsUseCaseTest() {
-    this.scoreboardRepository = mock(IEventsRepository.class);
-    this.roundRepository = mock(IEventsRepository.class);
-    this.updatePlayersPointsUseCase = new UpdatePlayersPointsUseCase(scoreboardRepository, roundRepository);
+    this.repository = mock(IEventsRepositoryPort.class);
+    this.updatePlayersPointsUseCase = new UpdatePlayersPointsUseCase(repository);
   }
 
   @Test
   void testExecuteSuccess() {
-    when(scoreboardRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId("1")).thenReturn(Flux.just(
       new CreatedScoreboard(),
       new AddedPlayer("1","player1"),
       new AddedPlayer("2","player2"),
       new AddedRoundToHistory("round1")
     ));
 
-    when(roundRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId("round1")).thenReturn(Flux.just(
       new StartedRound(),
       new RecordedMove("1", TypeEnum.NUMBER.name(), 9),
       new RecordedMove("2", TypeEnum.NUMBER.name(), 2),

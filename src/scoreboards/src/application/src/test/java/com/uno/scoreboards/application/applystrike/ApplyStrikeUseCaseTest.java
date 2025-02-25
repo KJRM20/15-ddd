@@ -1,7 +1,6 @@
 package com.uno.scoreboards.application.applystrike;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
-import com.uno.scoreboards.domain.round.Round;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.domain.round.events.StartedRound;
 import com.uno.scoreboards.domain.round.values.DetailEnum;
 import org.junit.jupiter.api.Test;
@@ -14,17 +13,17 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class ApplyStrikeUseCaseTest {
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort repository;
   private final ApplyStrikeUseCase applyStrikeUseCase;
 
   public ApplyStrikeUseCaseTest() {
-    this.roundRepository = mock(IEventsRepository.class);
-    this.applyStrikeUseCase = new ApplyStrikeUseCase(roundRepository);
+    this.repository = mock(IEventsRepositoryPort.class);
+    this.applyStrikeUseCase = new ApplyStrikeUseCase(repository);
   }
 
   @Test
   void testExecuteSuccess() {
-    when(roundRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
       new StartedRound()
     ));
 

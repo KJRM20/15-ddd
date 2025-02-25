@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.creategame;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.application.shared.scoreboard.ScoreboardResponse;
 import com.uno.scoreboards.domain.round.Round;
 import com.uno.scoreboards.domain.scoreboard.Scoreboard;
@@ -10,12 +10,10 @@ import reactor.core.publisher.Mono;
 import static com.uno.scoreboards.application.shared.scoreboard.ScoreboardMapper.mapToScoreboard;
 
 public class CreateGameUseCase implements ICommandUseCase<CreateGameRequest, Mono<ScoreboardResponse>> {
-  private final IEventsRepository scoreboardRepository;
-  private final IEventsRepository roundRepository;
+  private final IEventsRepositoryPort repository;
 
-  public CreateGameUseCase(IEventsRepository scoreboardRepository, IEventsRepository roundRepository) {
-    this.scoreboardRepository = scoreboardRepository;
-    this.roundRepository = roundRepository;
+  public CreateGameUseCase(IEventsRepositoryPort repository) {
+    this.repository = repository;
   }
 
   @Override
@@ -24,8 +22,8 @@ public class CreateGameUseCase implements ICommandUseCase<CreateGameRequest, Mon
     request.getPlayers().forEach(scoreboard::addPlayer);
     Round round = new Round();
     scoreboard.addRoundToHistory(round.getIdentity().getValue());
-    scoreboard.getUncommittedEvents().forEach(scoreboardRepository::save);
-    round.getUncommittedEvents().forEach(roundRepository::save);
+    scoreboard.getUncommittedEvents().forEach(repository::save);
+    round.getUncommittedEvents().forEach(repository::save);
     scoreboard.markEventsAsCommitted();
     round.markEventsAsCommitted();
 

@@ -4,13 +4,16 @@ import java.time.Instant;
 import java.util.UUID;
 
 public abstract class DomainEvent {
-  private final Instant when;
-  private final String uuid;
-  private final String name;
+  private Instant when;
+  private String uuid;
+  private String name;
 
   private String aggregateRootId;
   private String aggregateName;
   private Long version;
+
+  protected DomainEvent() {
+  }
 
   protected DomainEvent(String name) {
     this.when = Instant.now();
@@ -23,12 +26,24 @@ public abstract class DomainEvent {
     return when;
   }
 
+  public void setWhen(Instant when) {
+    this.when = when;
+  }
+
   public String getUuid() {
     return uuid;
   }
 
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
   public String getName() {
     return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public String getAggregateRootId() {

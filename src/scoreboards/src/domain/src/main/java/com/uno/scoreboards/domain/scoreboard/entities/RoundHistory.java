@@ -40,6 +40,10 @@ public class RoundHistory extends Entity<RoundHistoryId> {
     return roundHistoryList.getRoundIds().size();
   }
 
+  public String getLastRound() {
+    return roundHistoryList.getRoundIds().get(roundHistoryList.getRoundIds().size() - 1);
+  }
+
   public RoundList getRoundHistoryList() {
     return roundHistoryList;
   }

@@ -1,7 +1,7 @@
 package com.uno.scoreboards.application.reverthistorytoround;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
-import com.uno.scoreboards.domain.round.events.StartedRound;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
+import com.uno.scoreboards.domain.round.events.RecordedMove;
 import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.AddedRoundToHistory;
 import com.uno.scoreboards.domain.scoreboard.events.CreatedScoreboard;
@@ -15,17 +15,17 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class RevertHistoryToRoundUseCaseTest {
-  private final IEventsRepository scoreboardRepository;
+  private final IEventsRepositoryPort repository;
   private final RevertHistoryToRoundUseCase revertHistoryToRoundUseCase;
 
   public RevertHistoryToRoundUseCaseTest() {
-    this.scoreboardRepository = mock(IEventsRepository.class);
-    this.revertHistoryToRoundUseCase = new RevertHistoryToRoundUseCase(scoreboardRepository);
+    this.repository = mock(IEventsRepositoryPort.class);
+    this.revertHistoryToRoundUseCase = new RevertHistoryToRoundUseCase(repository);
   }
 
   @Test
   void testExecuteSuccess() {
-    when(scoreboardRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId("1")).thenReturn(Flux.just(
       new CreatedScoreboard(),
       new AddedPlayer("1","player1"),
       new AddedPlayer("2","player2"),

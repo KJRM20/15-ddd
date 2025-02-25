@@ -3,8 +3,12 @@ package com.uno.scoreboards.domain.scoreboard.events;
 import com.uno.shared.domain.generic.DomainEvent;
 
 public class UpdatedPlayerPoints extends DomainEvent {
-  private final String playerId;
-  private final Integer points;
+  private String playerId;
+  private Integer points;
+
+  public UpdatedPlayerPoints() {
+    super(EventsEnum.UPDATED_PLAYER_POINTS.name());
+  }
 
   public UpdatedPlayerPoints(String playerId, Integer points) {
     super(EventsEnum.UPDATED_PLAYER_POINTS.name());
@@ -18,5 +22,13 @@ public class UpdatedPlayerPoints extends DomainEvent {
 
   public Integer getPoints() {
     return points;
+  }
+
+  public void setPlayerId(String playerId) {
+    this.playerId = playerId;
+  }
+
+  public void setPoints(Integer points) {
+    this.points = points;
   }
 }

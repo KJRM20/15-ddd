@@ -29,6 +29,10 @@ public class Player extends Entity<PlayerId> {
     this.score = Score.of(score.getValue() + points);
   }
 
+  public void resetScore() {
+    this.score = Score.of(0);
+  }
+
   public boolean hasReachedTargetScore(Integer targetScore) {
     return score.getValue() >= targetScore;
   }

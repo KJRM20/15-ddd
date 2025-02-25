@@ -1,6 +1,6 @@
 package com.uno.scoreboards.application.checkgamestatus;
 
-import com.uno.scoreboards.application.shared.repositories.IEventsRepository;
+import com.uno.scoreboards.application.shared.ports.IEventsRepositoryPort;
 import com.uno.scoreboards.application.shared.scoreboard.ScoreboardResponse;
 import com.uno.scoreboards.domain.scoreboard.events.AddedPlayer;
 import com.uno.scoreboards.domain.scoreboard.events.CreatedScoreboard;
@@ -19,17 +19,17 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class CheckGameStatusUseCaseTest {
-  private final IEventsRepository scoreboardRepository;
+  private final IEventsRepositoryPort repository;
   private final CheckGameStatusUseCase checkGameStatusUseCase;
 
   public CheckGameStatusUseCaseTest() {
-    this.scoreboardRepository = mock(IEventsRepository.class);
-    this.checkGameStatusUseCase = new CheckGameStatusUseCase(scoreboardRepository);
+    this.repository = mock(IEventsRepositoryPort.class);
+    this.checkGameStatusUseCase = new CheckGameStatusUseCase(repository);
   }
 
   @Test
   void testExecuteSuccess() {
-    when(scoreboardRepository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
+    when(repository.findEventsByAggregateId(anyString())).thenReturn(Flux.just(
       new CreatedScoreboard(),
       new AddedPlayer("1","player1"),
       new AddedPlayer("2","player2"),

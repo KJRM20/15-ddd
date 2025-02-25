@@ -12,6 +12,8 @@
             <option value="$PROJECT_DIR$/shared" />
             <option value="$PROJECT_DIR$/src/scoreboards/src/application" />
             <option value="$PROJECT_DIR$/src/scoreboards/src/domain" />
+            <option value="$PROJECT_DIR$/src/scoreboards/src/infrastructure/driven-adapters/mongo" />
+            <option value="$PROJECT_DIR$/src/scoreboards/src/infrastructure/driving-adapters/main-service" />
             <option value="$PROJECT_DIR$/src/shared/src/application" />
             <option value="$PROJECT_DIR$/src/shared/src/domain" />
           </set>
