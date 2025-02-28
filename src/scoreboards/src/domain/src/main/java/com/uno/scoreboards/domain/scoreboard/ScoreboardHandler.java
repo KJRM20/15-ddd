@@ -75,6 +75,13 @@ public class ScoreboardHandler extends DomainActionsContainer {
           .setIsWinner(
             IsWinner.of(scoreboard.getPlayers().get(player.getIdentity())
             .hasReachedTargetScore(event.getTargetScore()))));
+
+      boolean notWinners = players.stream()
+        .noneMatch(player -> player.getIsWinner().getValue());
+
+      if (notWinners) {
+        scoreboard.setState(State.of(StateEnum.IN_PROGRESS.name()));
+      }
     };
   }
 

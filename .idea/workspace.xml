@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3db72c68-10b7-4118-9286-4c5311061d39" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishgameround/FinishGameRoundUseCase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/application/src/main/java/com/uno/scoreboards/application/finishgameround/FinishGameRoundUseCase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/ScoreboardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/scoreboards/src/domain/src/main/java/com/uno/scoreboards/domain/scoreboard/ScoreboardHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -224,9 +224,9 @@
     </configuration>
     <list>
       <item itemvalue="Application.MainApplication" />
-      <item itemvalue="Gradle.UNO [dependencies]" />
       <item itemvalue="Gradle.StartGameRoundUseCaseTest.testExecuteSuccess" />
       <item itemvalue="Gradle.Tests in 'uno.scoreboards.application.test'" />
+      <item itemvalue="Gradle.UNO [dependencies]" />
       <item itemvalue="Gradle.UpdatePlayersPointsUseCaseTest.testExecuteSuccess" />
     </list>
     <recent_temporary>
